@@ -6,10 +6,10 @@
 <div class="row">
     <div class="col-xs-12">
 
-        <div *ngFor="let iteratorRecipe of Recipes">
+        <div *ngFor="let iteratorRecipe of recipes">
             <a href="#" class="list-group-item clearfix">
                 <div class="pull-left">
-                    <h4 class="list-group-item-heading">{{ iteratorRecipe.name }}</h4>
+                    <h4 class="list-group-item-heading" [innerText] = "iteratorRecipe.name"></h4>
                     <p class="list-group-item-text">{{ iteratorRecipe.description }}</p>
                 </div>
                 <span class="pull-right">
