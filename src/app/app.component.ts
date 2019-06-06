@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  
+
+  featureSelected = 'recipe'; // originally i want to show Recipes
+
+  onNavigation(navName: string) {
+
+    console.log(navName);
+    this.featureSelected = navName;
+  }
 }
