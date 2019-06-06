@@ -6,19 +6,10 @@
 <hr>
 <div class="row">
     <div class="col-xs-12">
-
-        <div *ngFor="let iteratorRecipe of recipes">
-            <a href="#" class="list-group-item clearfix">
-                <div class="pull-left">
-                    <h4 class="list-group-item-heading" [innerText] = "iteratorRecipe.name"></h4>
-                    <p class="list-group-item-text">{{ iteratorRecipe.description }}</p>
-                </div>
-                <span class="pull-right">
-                    <img src="{{ iteratorRecipe.imagePath }}" alt="" class="img-responsive" style="max-height: 50px">
-                </span>
-            </a>
-        </div>
-        
-        <app-recipe-item></app-recipe-item>
+        <app-recipe-item
+            *ngFor="let iteratorRecipe of recipes"
+            [recipe] = "iteratorRecipe"
+            (fireRecipeSelectedEvent) = "onRecipeSelected(iteratorRecipe)"
+        ></app-recipe-item>        
     </div>
 </div>
