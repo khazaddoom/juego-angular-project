@@ -11,7 +11,7 @@ export class AppComponent {
 
   onNavigation(navName: string) {
 
-    console.log(navName);
+    // console.log(navName);
     this.featureSelected = navName;
   }
 }
