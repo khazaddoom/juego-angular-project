@@ -18,6 +18,8 @@ export class ShoppingListComponent implements OnInit {
     this.ingredients = this.shoppingListService.getIngredients();
 
     this.shoppingListService.informAddIngredientEvent.subscribe(()=> {
+
+      console.log(this.shoppingListService.getIngredients());
       this.ingredients = this.shoppingListService.getIngredients();
     });
 

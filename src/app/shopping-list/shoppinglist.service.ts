@@ -18,5 +18,16 @@ export class ShoppingListService {
         this.informAddIngredientEvent.emit();
     }
 
+    updateShoppingList(updatedIngredients: Ingredient[]) {
+
+        this.ingredients = this.ingredients.splice(this.ingredients.length);
+        
+        Array.prototype.push.apply(this.ingredients, updatedIngredients);
+
+        console.log(this.ingredients);
+        
+        this.informAddIngredientEvent.emit();
+    }
+
 
 }
