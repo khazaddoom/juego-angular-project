@@ -20,12 +20,11 @@ export class ShoppingListService {
 
     updateShoppingList(updatedIngredients: Ingredient[]) {
 
-        this.ingredients = this.ingredients.splice(this.ingredients.length);
-        
-        Array.prototype.push.apply(this.ingredients, updatedIngredients);
+        //this.ingredients = this.ingredients.splice(this.ingredients.length);        
+        //Array.prototype.push.apply(this.ingredients, updatedIngredients);
 
-        console.log(this.ingredients);
-        
+        this.ingredients.push(...updatedIngredients);
+
         this.informAddIngredientEvent.emit();
     }
 
