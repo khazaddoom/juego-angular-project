@@ -8,8 +8,9 @@
     <div class="col-xs-12">
         <app-recipe-item
             *ngFor="let iteratorRecipe of recipes"
-            [recipe] = "iteratorRecipe"
-            (fireRecipeSelectedEvent) = "onRecipeSelected(iteratorRecipe)"
+            [recipe] = "iteratorRecipe"            
         ></app-recipe-item>        
     </div>
 </div>
+
+<!-- (fireRecipeSelectedEvent) = "onRecipeSelected(iteratorRecipe)" -->

@@ -1,4 +1,5 @@
 import { Recipe } from './recipe-list/recipe.model';
+import { EventEmitter, SimpleChanges } from '@angular/core';
 
 export class RecipeService {
 
@@ -10,9 +11,18 @@ export class RecipeService {
         )
     ];
 
+    // this member/property always has the so as to say 'selected recipe'
+    recipeSelectionEvent = new EventEmitter<Recipe>();
 
-    getRecipes(): Recipe[] {
-        return this.recipes.slice();
+    // ngOnChange(change: SimpleChanges)
+    ngDoCheck() {
+        console.log('something happened!!!')
     }
 
+
+    getRecipes(): Recipe[] {
+
+        // slice is used to return a copy which is isolated from the actual class member!
+        return this.recipes.slice();
+    }
 }

@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Recipe } from '../recipe.model';
+import { RecipeService } from '../../recipe.services';
 
 @Component({
   selector: 'app-recipe-item',
@@ -10,16 +11,18 @@ export class RecipeItemComponent implements OnInit {
 
   @Input() recipe: Recipe;
 
-  @Output() fireRecipeSelectedEvent = new EventEmitter<void>();
+  // @Output() fireRecipeSelectedEvent = new EventEmitter<void>();
 
-  constructor() { }
+  constructor(private recipeService: RecipeService) { }
 
   ngOnInit() {
   }
 
   onRecipeSelect() {
-
-    this.fireRecipeSelectedEvent.emit();
+    //this.fireRecipeSelectedEvent.emit();
+    
+    // I am no longer emiting an event local to this component but a Service event itself with the object selected
+    this.recipeService.recipeSelectionEvent.emit(this.recipe);
   }
 
 }
