@@ -14,11 +14,7 @@ const appRoutes: Route[] = [
         path: 'recipes', component: RecipesComponent
     },
     {
-        path: 'shopping-list', component: ShoppingListComponent, children: [
-            {
-                path: ':id', component: ShoppingListComponent
-            }
-        ]
+        path: 'shopping-list', component: ShoppingListComponent
     },
     
     {
