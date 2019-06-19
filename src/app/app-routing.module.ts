@@ -5,13 +5,22 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { RecipesComponent } from './recipes/recipes.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { HeaderComponent } from './header/header.component';
+import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
+import { RecipesHomeComponent } from './recipes/recipes-home/recipes-home.component';
 
 const appRoutes: Route[] = [
     {
         path: '', redirectTo: '/recipes', pathMatch: 'full'
     },
     {
-        path: 'recipes', component: RecipesComponent
+        path: 'recipes', component: RecipesComponent, children: [
+            {
+                path: '', component: RecipesHomeComponent
+            },
+            {
+                path: ':id', component: RecipeDetailComponent
+            }
+        ]
     },
     {
         path: 'shopping-list', component: ShoppingListComponent
