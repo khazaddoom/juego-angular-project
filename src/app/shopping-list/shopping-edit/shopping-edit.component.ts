@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, Output, EventEmitter, ElementRef } from '
 
 import { ShoppingListService } from '../shoppinglist.service';
 import { Ingredient } from 'src/app/shared/ingredient.model';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-shopping-edit',

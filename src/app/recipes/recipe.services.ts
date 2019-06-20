@@ -1,6 +1,7 @@
 import { Recipe } from './recipe-list/recipe.model';
 import { EventEmitter } from '@angular/core';
 import { Ingredient } from '../shared/ingredient.model';
+import { Subject } from 'rxjs';
 
 export class RecipeService {
 
@@ -24,7 +25,8 @@ export class RecipeService {
     ];
 
     // this member/property always has the so as to say 'selected recipe'
-    recipeSelectionEvent = new EventEmitter<Recipe>();
+    //updated now with a subject implementation as it is a recommended approach!
+    recipeSelectionEvent = new Subject<Recipe>();
 
     // ngOnChange(change: SimpleChanges)
     ngDoCheck() {
