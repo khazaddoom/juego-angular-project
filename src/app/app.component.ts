@@ -7,11 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  featureSelected = 'recipe'; // originally i want to show Recipes
+  // featureSelected = 'recipe'; // originally i want to show Recipes
 
-  onNavigation(navName: string) {
+  // onNavigation(navName: string) {
 
-    // console.log(navName);
-    this.featureSelected = navName;
-  }
+  //   // console.log(navName);
+  //   this.featureSelected = navName;
+  // }
+  /** commenting this code as the page showing happens now using routes. */
+
 }

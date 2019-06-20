@@ -25,7 +25,7 @@ export class RecipeItemComponent implements OnInit {
     
     // I am no longer emiting an event local to this component but a Service event itself with the object selected
     this.recipeService.recipeSelectionEvent.emit(this.recipe);
-    this.routes.navigate(['/recipes', this.recipeIndex], { relativeTo: this.route})
+    //this.routes.navigate(['/recipes', this.recipeIndex], { relativeTo: this.route})
   }
 
 }

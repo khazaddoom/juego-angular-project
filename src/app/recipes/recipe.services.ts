@@ -7,7 +7,7 @@ export class RecipeService {
     private recipes: Recipe[] = [
         new Recipe(
         'Mansaf',
-        'Mansaf is a traditional Jordanian dish made of lamb cooked in a sauce of fermented dried yogurt and served with rice or bulgur.', 
+        'Mansaf is a Jordanian dish made of lamb, yogurt.', 
         'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Traditional_Mansaf_served_on_flatbread.jpg/220px-Traditional_Mansaf_served_on_flatbread.jpg',
         [
             new Ingredient('Chicken pieces', 10), new Ingredient('GingerGarlic Paste', 5), new Ingredient('Yogurt', 1)
@@ -28,7 +28,7 @@ export class RecipeService {
 
     // ngOnChange(change: SimpleChanges)
     ngDoCheck() {
-        console.log('something happened!!!')
+        //console.log('something happened!!!')
     }
 
 

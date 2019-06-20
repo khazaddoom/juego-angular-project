@@ -15,6 +15,8 @@ import { ShoppingListService } from './shopping-list/shoppinglist.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RecipesHomeComponent } from './recipes/recipes-home/recipes-home.component';
+import { RecipeNewComponent } from './recipes/recipe-new/recipe-new.component';
+import { RecipeNeweditComponent } from './recipes/recipe-newedit/recipe-newedit.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { RecipesHomeComponent } from './recipes/recipes-home/recipes-home.compon
     ShoppingEditComponent,
     DropdownDirective,
     PageNotFoundComponent,
-    RecipesHomeComponent
+    RecipesHomeComponent,
+    RecipeNewComponent,
+    RecipeNeweditComponent
   ],
   imports: [
     BrowserModule,
