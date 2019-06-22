@@ -14,15 +14,15 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
   ingredients: Ingredient[] = [];
   subscription: Subscription;
 
+  selected = false;
+
   constructor(private shoppingListService: ShoppingListService, private route: Router) { }
 
   ngOnInit() {
 
     this.ingredients = this.shoppingListService.getIngredients();
 
-    this.subscription = this.shoppingListService.informAddIngredientEvent.subscribe(()=> {
-
-      console.log(this.shoppingListService.getIngredients());
+    this.subscription = this.shoppingListService.informAddIngredientEvent_new.subscribe(()=> {
       this.ingredients = this.shoppingListService.getIngredients();
     });
 
@@ -30,6 +30,11 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  onSelectIngredient(index: number) {
+    this.selected = true;
+    this.shoppingListService.informIngredientSelectedPromise.next(index);
   }
 
   // onAddNewingredient(newIngredient: Ingredient) {

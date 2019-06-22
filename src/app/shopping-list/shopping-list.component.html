@@ -1,10 +1,10 @@
 <div class="row">
   <div class="col-xs-10">
-    <app-shopping-edit></app-shopping-edit>
+    <app-shopping-edit ></app-shopping-edit>
     <hr>
     <ul class="list-group">
-      <a class="list-group-item" style="cursor: pointer" 
-      *ngFor = "let iteratorIngredient of ingredients">
+      <a class="list-group-item" style="cursor: pointer" (click) = "onSelectIngredient(in)" 
+      *ngFor = "let iteratorIngredient of ingredients; let in = index">
         {{ iteratorIngredient.name}} ({{ iteratorIngredient.amount }})
       </a>
     </ul>

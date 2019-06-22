@@ -53,3 +53,8 @@ const appRoutes: Route[] = [
 export class AppRoutingModule {
 
 }
+
+// , children: [
+//     {
+//         path: ':id/edit', component: ShoppingListComponent
+//     } ]

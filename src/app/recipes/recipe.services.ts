@@ -1,5 +1,4 @@
 import { Recipe } from './recipe-list/recipe.model';
-import { EventEmitter } from '@angular/core';
 import { Ingredient } from '../shared/ingredient.model';
 import { Subject } from 'rxjs';
 

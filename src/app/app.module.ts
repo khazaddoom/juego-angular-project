@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 // Custom componets
 import { AppComponent } from './app.component';
@@ -36,7 +37,8 @@ import { RecipeNeweditComponent } from './recipes/recipe-newedit/recipe-newedit.
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [ShoppingListService],
   bootstrap: [AppComponent]
