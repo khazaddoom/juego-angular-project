@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { FormGroup, FormControl, FormArray } from '@angular/forms';
+import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 import { RecipeService } from '../recipe.services';
 
 @Component({
@@ -44,8 +44,14 @@ export class RecipeNeweditComponent implements OnInit {
       if (recipe.ingredients.length != 0) {
         recipe.ingredients.forEach(element => {
           recipeIngredients.push(new FormGroup({
-            'name' : new FormControl(element.name),
-            'amount': new FormControl(element.amount)
+            'name' : new FormControl(element.name, Validators.required),
+            'amount': new FormControl(
+              element.amount, [
+                Validators.required,
+                // this.positiveIntegerValidation
+                Validators.pattern(/^[1-9]+[0-9]*$/)
+              ]
+              )
           }));
         });
       }
@@ -53,9 +59,9 @@ export class RecipeNeweditComponent implements OnInit {
     }
 
     this.recipeForm = new FormGroup({
-      'name': new FormControl(recipeName),
-      'imgPath': new FormControl(recipeImgPath),
-      'description': new FormControl(recipeDescription),
+      'name': new FormControl(recipeName, Validators.required),
+      'imgPath': new FormControl(recipeImgPath, Validators.required),
+      'description': new FormControl(recipeDescription, Validators.required),
       'ingredients' : recipeIngredients
     });
 
@@ -63,5 +69,29 @@ export class RecipeNeweditComponent implements OnInit {
 
   onSubmit() {
 
+    console.log(this.recipeForm)
+
   }
+
+  onAddIngredient() {
+    (<FormArray>this.recipeForm.get('ingredients')).push(new FormGroup({
+      'name' : new FormControl(null, Validators.required),
+            'amount': new FormControl(null, [
+              Validators.required,
+              // this.positiveIntegerValidation
+              Validators.pattern(/^[1-9]+[0-9]*$/)
+            ])
+    }));
+  }
+
+  positiveIntegerValidation(control: FormControl) : {[s: string] : boolean} {
+
+    if (control.value <= 0) {
+      return { 'invalid_amount' : true};
+    } else {
+      return null;
+    }
+   
+  }
+
 }
