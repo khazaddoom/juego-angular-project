@@ -27,6 +27,8 @@ export class RecipeService {
     //updated now with a subject implementation as it is a recommended approach!
     recipeSelectionEvent = new Subject<Recipe>();
 
+    recipesChangedEvent = new Subject<Recipe[]>();
+
     // ngOnChange(change: SimpleChanges)
     ngDoCheck() {
         //console.log('something happened!!!')
@@ -43,4 +45,24 @@ export class RecipeService {
 
         return this.recipes[id];
     }
+
+    updateRecipe(index: number, recipe: Recipe) {
+        this.recipes[index] = recipe;
+        this.recipesChangedEvent.next(this.recipes.slice());
+    }
+
+   addRecipe(newRecipe: Recipe) {
+        
+        this.recipes.push(newRecipe);
+        this.recipesChangedEvent.next(this.recipes.slice());
+
+        console.log(this.recipes)
+    }
+
+    deleteRecipe(index: number) {
+        this.recipes.splice(index, 1);
+        this.recipesChangedEvent.next(this.recipes.slice());
+    }
+
+
 }

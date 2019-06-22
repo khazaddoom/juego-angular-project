@@ -16,7 +16,6 @@ import { ShoppingListService } from './shopping-list/shoppinglist.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RecipesHomeComponent } from './recipes/recipes-home/recipes-home.component';
-import { RecipeNewComponent } from './recipes/recipe-new/recipe-new.component';
 import { RecipeNeweditComponent } from './recipes/recipe-newedit/recipe-newedit.component';
 
 @NgModule({
@@ -32,7 +31,6 @@ import { RecipeNeweditComponent } from './recipes/recipe-newedit/recipe-newedit.
     DropdownDirective,
     PageNotFoundComponent,
     RecipesHomeComponent,
-    RecipeNewComponent,
     RecipeNeweditComponent
   ],
   imports: [
