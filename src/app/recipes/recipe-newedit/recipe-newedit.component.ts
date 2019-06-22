@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 import { RecipeService } from '../recipe.services';
@@ -90,7 +90,7 @@ export class RecipeNeweditComponent implements OnInit {
       this.recipeService.addRecipe(newRecipe);
     }
 
-    this.router.navigate(['/recipes'], {relativeTo: this.currentRoute});
+    this.router.navigate(['../'], {relativeTo: this.currentRoute});
    
 
   }
@@ -117,7 +117,7 @@ export class RecipeNeweditComponent implements OnInit {
   }
 
   onCancel() {
-    this.router.navigate(['/recipes'], {relativeTo: this.currentRoute});
+    this.router.navigate(['../'], {relativeTo: this.currentRoute});
   }
 
 }
