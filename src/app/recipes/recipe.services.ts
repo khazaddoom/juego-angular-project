@@ -2,26 +2,10 @@ import { Recipe } from './recipe-list/recipe.model';
 import { Ingredient } from '../shared/ingredient.model';
 import { Subject } from 'rxjs';
 
+
 export class RecipeService {
 
-    private recipes: Recipe[] = [
-        new Recipe(
-        'Mansaf',
-        'Mansaf is a Jordanian dish made of lamb, yogurt.', 
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Traditional_Mansaf_served_on_flatbread.jpg/220px-Traditional_Mansaf_served_on_flatbread.jpg',
-        [
-            new Ingredient('Chicken pieces', 10), new Ingredient('GingerGarlic Paste', 5), new Ingredient('Yogurt', 1)
-        ]
-        ),
-        new Recipe(
-            'Chicken Curry',
-            'An indian dish made from boiled chicken pieces.', 
-            'https://recipesfromapantry.com/wp-content/uploads/2018/05/instant-pot-chicken-curry-11.jpg',
-            [
-                new Ingredient('Lamb', 5), new Ingredient('GingerGarlic Paste', 7), new Ingredient('Yogurt', 10)
-            ]
-            )
-    ];
+    private recipes: Recipe[] = [];
 
     // this member/property always has the so as to say 'selected recipe'
     //updated now with a subject implementation as it is a recommended approach!
@@ -38,7 +22,10 @@ export class RecipeService {
     getRecipes(): Recipe[] {
 
         // slice is used to return a copy which is isolated from the actual class member!
-        return this.recipes.slice();
+        if (this.recipes.length > 0) {
+            return this.recipes.slice();
+        } else return [];
+        
     }
 
     getRecipeById(id: number): Recipe {
@@ -62,6 +49,11 @@ export class RecipeService {
     deleteRecipe(index: number) {
         this.recipes.splice(index, 1);
         this.recipesChangedEvent.next(this.recipes.slice());
+    }
+
+    updateRecipes(recipes: Recipe[]) {
+        this.recipes = recipes;
+        this.recipesChangedEvent.next(this.recipes.slice())
     }
 
 

@@ -8,6 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
 import { RecipesHomeComponent } from './recipes/recipes-home/recipes-home.component';
 import { RecipeNeweditComponent } from './recipes/recipe-newedit/recipe-newedit.component';
+import { RecipesResolverService } from './recipes/recipes-resolver.service';
 
 const appRoutes: Route[] = [
     {
@@ -22,10 +23,10 @@ const appRoutes: Route[] = [
                 path: 'new', component: RecipeNeweditComponent
             },
             {
-                path: ':id', component: RecipeDetailComponent
+                path: ':id', component: RecipeDetailComponent, resolve: [RecipesResolverService]
             },
             {
-                path: ':id/edit', component: RecipeNeweditComponent
+                path: ':id/edit', component: RecipeNeweditComponent,  resolve: [RecipesResolverService]
             }             
         ]
     },
