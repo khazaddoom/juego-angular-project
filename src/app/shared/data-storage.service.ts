@@ -6,48 +6,32 @@ import { RecipeService } from '../recipes/recipe.services';
 import { Recipe } from '../recipes/recipe-list/recipe.model';
 import { AuthService } from '../auth/auth.service';
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class DataStorageService {
 
-    constructor(private http: HttpClient, private recipeService: RecipeService, private authService: AuthService) {}
+    constructor(private http: HttpClient, private recipeService: RecipeService, private authService: AuthService) { }
 
     storeRecipes() {
 
         const recipes: Recipe[] = this.recipeService.getRecipes();
-        
-        return this.authService.user.pipe(
-            take(1),
-            exhaustMap(user => {
 
-                return this.http.put('https://recipes-54f9d.firebaseio.com/recipes.json', recipes,
-                    {
-                        params: new HttpParams().set('auth', user.token)
-                    }
-                );
-            })
-        );
-        
+        return this.http.put('https://recipes-54f9d.firebaseio.com/recipes.json', recipes);
+       
     }
 
     fetchRecipes() {
 
-        return this.authService.user.pipe(
-            take(1),
-            exhaustMap(user => {
-                return this.http.get<Recipe[]>(
-                    'https://recipes-54f9d.firebaseio.com/recipes.json',
-                    {
-                        params: new HttpParams().set('auth', user.token)
-                    }
-                );
-            }), map(recipes => {
-                return recipes.map(recipe => {
-                    return {
-                        ...recipe,
-                        ingredients: recipe.ingredients ? recipe.ingredients : []
-                    }
-                });
-            }), tap(recipes => this.recipeService.updateRecipes(recipes))
-        );
+
+        return this.http.get<Recipe[]>(
+            'https://recipes-54f9d.firebaseio.com/recipes.json'
+        ).pipe(map(recipes => {
+            return recipes.map(recipe => {
+                return {
+                    ...recipe,
+                    ingredients: recipe.ingredients ? recipe.ingredients : []
+                }
+            });
+        }), tap(recipes => this.recipeService.updateRecipes(recipes)));
+
     }
 }
