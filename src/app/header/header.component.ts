@@ -38,5 +38,9 @@ export class HeaderComponent implements OnInit {
     this.subscription.unsubscribe();
   }
 
+  onLogout() {
+    this.authService.logout();
+  }
+
 
 }
