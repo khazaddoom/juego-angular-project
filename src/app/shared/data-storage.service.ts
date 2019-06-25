@@ -12,9 +12,21 @@ export class DataStorageService {
     constructor(private http: HttpClient, private recipeService: RecipeService, private authService: AuthService) {}
 
     storeRecipes() {
+
         const recipes: Recipe[] = this.recipeService.getRecipes();
-        this.http.put('https://recipes-54f9d.firebaseio.com/recipes.json', recipes)
-        .subscribe(response => console.log(response));
+        
+        return this.authService.user.pipe(
+            take(1),
+            exhaustMap(user => {
+
+                return this.http.put('https://recipes-54f9d.firebaseio.com/recipes.json', recipes,
+                    {
+                        params: new HttpParams().set('auth', user.token)
+                    }
+                );
+            })
+        );
+        
     }
 
     fetchRecipes() {
