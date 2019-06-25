@@ -20,6 +20,7 @@ import { RecipeNeweditComponent } from './recipes/recipe-newedit/recipe-newedit.
 import { RecipeService } from './recipes/recipe.services';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthComponent } from './auth/auth.component';
+import { LoadingspinnerComponent } from './shared/loadingspinner/loadingspinner.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { AuthComponent } from './auth/auth.component';
     PageNotFoundComponent,
     RecipesHomeComponent,
     RecipeNeweditComponent,
-    AuthComponent
+    AuthComponent,
+    LoadingspinnerComponent
   ],
   imports: [
     BrowserModule,

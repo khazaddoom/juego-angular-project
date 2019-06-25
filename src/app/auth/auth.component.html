@@ -1,20 +1,39 @@
 <div class="row">
   <div class="col-xs-12 col-md-6 col-offset-3">
 
-    <form>
+    <div class="alert alert-danger" *ngIf = "error">
+      <p>{{ error }}</p>
+    </div>
+
+    <div *ngIf="isLoading">
+        <app-loadingspinner></app-loadingspinner>   
+    </div> 
+
+    <form (ngSubmit) = "onSubmit(loginForm)" #loginForm = "ngForm" *ngIf="!isLoading">
 
       <div class="form-group">
         <div>
           <label for="email">Email</label>
-          <input type="text" id="email" name="email" class="form-control">
+          <input type="text" id="email" name="email" class="form-control" 
+          ngModel
+          required
+          email        
+          >
         </div>
         <div>
           <label for="password">Password</label>
-          <input type="password" id="password" name="password" class="form-control">
+          <input type="password" id="password" name="password" class="form-control" ngModel required  minlength="6" >
         </div>
+        <hr>
+
         <div class="form-group">
-          <button class="btn btn-primary">Sign up</button> |
-          <button class="btn btn-success">Switch Login</button>
+          <button class="btn btn-primary" type="submit" [disabled] = "!loginForm.valid">
+            {{ isLoginMode? 'Login' : 'Sign Up'}}
+          </button>
+           | 
+          <button class="btn btn-success" type="button" (click) = "onSwitchModes()">
+            Switch to {{ isLoginMode? 'Signup' : 'Login' }}
+          </button>
         </div>
       </div>
 
