@@ -5,7 +5,9 @@
       <p>{{ error }}</p>
     </div> -->
 
-    <app-alert [message]= "error" *ngIf="error" (close)="onCloseAlert()"></app-alert>
+    <!-- <app-alert [message]= "error" *ngIf="error" (close)="onCloseAlert()"></app-alert> -->
+
+    <ng-template appAlertmodal></ng-template>
 
     <div *ngIf="isLoading">
         <app-loadingspinner></app-loadingspinner>   
