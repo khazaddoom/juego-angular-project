@@ -20,13 +20,12 @@ import { AlertComponent } from './shared/alert/alert.component';
 import { AlertmodalDirective } from './shared/alertmodal.directive';
 
 import { RecipesModule } from './recipes/recipes.module';
+import { ShoppingListModue } from './shopping-list/shopping-list.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ShoppingListComponent,
-    ShoppingEditComponent,
     DropdownDirective,
     PageNotFoundComponent,
     AuthComponent,
@@ -38,9 +37,10 @@ import { RecipesModule } from './recipes/recipes.module';
     BrowserModule,    
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,   
+    HttpClientModule,
     RecipesModule,
-    AppRoutingModule,
+    ShoppingListModue,
+    AppRoutingModule, 
   ],
   providers: [ShoppingListService, RecipeService, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent],
