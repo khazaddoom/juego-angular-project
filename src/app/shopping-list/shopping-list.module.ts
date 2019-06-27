@@ -16,4 +16,6 @@ import { SharedModule } from '../shared/shared.module';
     providers: [],
     exports: []
 })
-export class ShoppingListModue {}
+export class ShoppingListModule {
+    
+}

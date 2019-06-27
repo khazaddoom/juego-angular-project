@@ -9,12 +9,6 @@ const appRoutes: Route[] = [
     {
         path: '', redirectTo: '/recipes', pathMatch: 'full'
     },
-    
-
-    {
-        path: 'auth', component: AuthComponent
-    },
-    
     {
         path: 'page-not-found', component: PageNotFoundComponent
     },

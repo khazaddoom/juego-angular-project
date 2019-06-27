@@ -9,28 +9,26 @@ import { ShoppingListService } from './shopping-list/shoppinglist.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RecipeService } from './recipes/recipe.services';
-import { AuthComponent } from './auth/auth.component';
 import { AuthInterceptor } from './auth/auth-interceptor.service';
 import { RecipesModule } from './recipes/recipes.module';
-import { ShoppingListModue } from './shopping-list/shopping-list.module';
 import { SharedModule } from './shared/shared.module';
+import { ShoppingListModule } from './shopping-list/shopping-list.module';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,    
-    PageNotFoundComponent,
-    AuthComponent    
+    PageNotFoundComponent,    
   ],
   imports: [
     BrowserModule,    
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
+    HttpClientModule,AuthModule,
     SharedModule,
     RecipesModule,
-    ShoppingListModue,
-    AppRoutingModule, 
+    ShoppingListModule,
+    AppRoutingModule,
+     
   ],
   providers: [ShoppingListService, RecipeService, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]
