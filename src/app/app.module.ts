@@ -26,7 +26,7 @@ import { ShoppingListModue } from './shopping-list/shopping-list.module';
   declarations: [
     AppComponent,
     HeaderComponent,
-    DropdownDirective,
+    
     PageNotFoundComponent,
     AuthComponent,
     LoadingspinnerComponent,
