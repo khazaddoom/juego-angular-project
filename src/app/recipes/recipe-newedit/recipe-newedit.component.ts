@@ -68,6 +68,10 @@ export class RecipeNeweditComponent implements OnInit {
 
   }
 
+  get ingredients() {
+    return (this.recipeForm.get('ingredients') as FormArray).controls;
+  }
+
   onSubmit() {
 
     
