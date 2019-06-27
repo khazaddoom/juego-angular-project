@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 // Custom componets
 import { AppComponent } from './app.component';
@@ -23,7 +22,8 @@ import { AuthModule } from './auth/auth.module';
   ],
   imports: [
     BrowserModule,    
-    HttpClientModule,AuthModule,
+    HttpClientModule,
+    AuthModule,
     SharedModule,
     RecipesModule,
     ShoppingListModule,

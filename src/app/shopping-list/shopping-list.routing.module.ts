@@ -5,7 +5,7 @@ import { ShoppingListComponent } from './shopping-list.component';
 
 const shoppingListRoutes : Route[] = [
     {
-        path: 'shopping-list', component: ShoppingListComponent
+        path: '', component: ShoppingListComponent
     },
 ];
 

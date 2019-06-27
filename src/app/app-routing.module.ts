@@ -10,6 +10,15 @@ const appRoutes: Route[] = [
         path: '', redirectTo: '/recipes', pathMatch: 'full'
     },
     {
+        path: 'auth', loadChildren: './auth/auth.module#AuthModule'
+    },
+    {
+        path: 'recipes', loadChildren: './recipes/recipes.module#RecipesModule'
+    },
+    {
+        path: 'shopping-list', loadChildren: './recipes/recipes.module#RecipesModule'
+    },
+    {
         path: 'page-not-found', component: PageNotFoundComponent
     },
     {
